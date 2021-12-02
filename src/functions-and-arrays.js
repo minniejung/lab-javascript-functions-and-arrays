@@ -1,7 +1,31 @@
+//---------------------------------------------------------
+//---------------------------------------------------------
+//---------------------------------------------------------
+
+
 // Iteration #1: Find the maximum
 function maxOfTwoNumbers(nb1, nb2) {
-  return nb1 > nb2 ? nb1 : nb2;  
-}
+  if(nb1 > nb2) return nb1;
+  else return nb2;
+  } 
+
+/* Same result but shorter 
+
+    function maxOfTwoNumbers(nb1, nb2) {
+      return nb1 > nb2 ? nb1 : nb2; 
+    }
+
+  OR
+
+    const maxOfTwoNumbers = (a, b) => (a > b ? a : b);
+
+*/
+
+
+
+//---------------------------------------------------------
+//---------------------------------------------------------
+//---------------------------------------------------------
 
 
 
@@ -9,22 +33,44 @@ function maxOfTwoNumbers(nb1, nb2) {
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
 function findLongestWord(words) {
-  
-  if (words.length === 0) {
-    return null;
-  } 
-
-  if (words.length === 1) {
-    return words[0];
-  } 
+  if(!words.length) return null;
+  if(words.length === 1) return words[0];
 
   let longest = words[0];
-  for (let i = 0; i < words.length; i++) {
-    if (words[i].length > longest.length) {
-      longest = words[i]; 
-    }   
-  } return longest;  
+  for (let i of words) {
+    if (i.length > longest.length) {
+      longest = i;
+    }
+  } return longest;
 }
+
+/* First code : too long!
+
+    function findLongestWord(words) {
+      
+      if (words.length === 0) {
+        return null;
+      } 
+
+      if (words.length === 1) {
+        return words[0];
+      } 
+
+      let longest = words[0];
+      for (let i = 0; i < words.length; i++) {
+        if (words[i].length > longest.length) {
+          longest = words[i]; 
+        }   
+      } return longest;  
+    }
+
+*/
+
+
+
+//---------------------------------------------------------
+//---------------------------------------------------------
+//---------------------------------------------------------
 
 
 
@@ -32,46 +78,87 @@ function findLongestWord(words) {
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 function sumNumbers(numbers) {
-  if (numbers.length === 0) {
-    return 0;
-  } 
-
-  if (numbers.length === 1) {
-    return numbers[0];
-  } 
+  if(!numbers.length) return 0;
+  if(numbers.length === 1) return numbers[0];
 
   let sum = 0;
-  for (let i = 0; i < numbers.length; i++) {
-    sum += numbers[i];
-    } return sum;
+  for (let i of numbers) {
+    sum += i;
+  } return sum;
 }
 
 
+/* First code :
 
+    function sumNumbers(numbers) {
+    if (numbers.length === 0) {
+      return 0;
+    } 
+
+    if (numbers.length === 1) {
+      return numbers[0];
+    } 
+
+    let sum = 0;
+    for (let i = 0; i < numbers.length; i++) {
+      sum += numbers[i];
+      } return sum;
+  }
+
+*/
+
+
+
+//---------------------------------------------------------
+//---------------------------------------------------------
+//---------------------------------------------------------
+
+
+
+// Not done yet
 // Iteration #3.1 Bonus:
-const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10, false];
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10, false, true];
 
 function sum(mixedArr) {
+  if(!mixedArr.length) return 0;
+  if(mixedArr.length === 0) return mixedArr[0];
 
-  if (mixedArr.length === 0) {
-    return 0;
-  } 
-
-  if (mixedArr.length === 1) {
-    return mixedArr[0];
+  function strToNum(mixedArr) {
+    for (let i of mixedArr) {
+      if (i = String) return i.length;
+    } 
   } 
 
   let sum = 0;
-  for (let i = 0; i < mixedArr.length; i++) {
-    sum += mixedArr[i];
-    } console.log(sum)
-    return sum;
+  for (let i of mixedArr) {
+    if (i = Number || strToNum) return sum += i;
+  }
+
 }
+
+
+
+//---------------------------------------------------------
+//---------------------------------------------------------
+//---------------------------------------------------------
+
 
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(numbersAvg) {
+  if (!numbersAvg.length) return null;
+  if (numbersAvg.length === 1) return numbersAvg[0];
+
+  let sum = 0;
+  for (let i of numbersAvg) {
+    sum += i;
+  } return sum / numbersAvg.length;
+}
+
+/* First code :
 
 function averageNumbers(numbersAvg) {
   if (numbersAvg.length === 0) {
@@ -88,9 +175,30 @@ function averageNumbers(numbersAvg) {
     } return sum / numbersAvg.length;
 }
 
+*/
+
+
+//---------------------------------------------------------
+//---------------------------------------------------------
+//---------------------------------------------------------
+
+
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+
+function averageWordLength(wordsArr) {
+  if (!wordsArr.length) return null;
+  if (wordsArr.length === 1) return wordsArr[0].length;
+
+  let sum = 0;
+  for (let i of wordsArr) {
+    sum += i.length;
+  } return sum / wordsArr.length;
+}
+
+
+/* First code :
 
 function averageWordLength(wordsArr) {
   if (wordsArr.length === 0) {
@@ -107,8 +215,24 @@ function averageWordLength(wordsArr) {
     } return sum / wordsArr.length;
  }
 
+*/
+
+//---------------------------------------------------------
+//---------------------------------------------------------
+//---------------------------------------------------------
+
+
+
 // Bonus - Iteration #4.1
 function avg() {}
+
+
+
+//---------------------------------------------------------
+//---------------------------------------------------------
+//---------------------------------------------------------
+
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -125,41 +249,58 @@ const wordsUnique = [
   'bring'
 ];
 
-/* --------------------- not yet */
+function uniquifyArray(wordsUnique) {
+  if (!wordsUnique.length) return null;
+  
+  for (let i of wordsUnique) {
+    if (!i == wordsUnique.indexOf()) return wordsUnique[i];
+  }
+}
+
+
+
+/* Not good, not dont yet
+
 function uniquifyArray(wordsUnique) {
   if (wordsUnique.length === 0) {
     return null;
   } 
   
-  let answer = "";
+  let answer = [];
   for (let i = 0; i < wordsUnique.length; i++) {
     if (wordsUnique.indexOf(wordsUnique[i]) == i) answer += wordsUnique[i];
   }
   return answer;
 }
 
+*/
+
+
+//---------------------------------------------------------
+//---------------------------------------------------------
+//---------------------------------------------------------
+
+
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-
-function doesWordExist(wordsFind, searchWord) {
-  if (wordsFind.length === 0) {
-    return null;
-  } 
-
-  if (wordsFind[i] === searchWord[i]) {
-    return true;  
-  }
+function doesWordExist(wordsFind, searchingWord) {
+  if (!wordsFind.length) return null;
   
-  for (let i = 0; i < wordsFind.length; i++)  
-    if (wordsFind.indexOf[i] === searchWord.IndexOf[i]) {
-      return true;
-    } else {
-      return false;
-    }
-
+  for (let i of wordsFind) {
+    if (i === searchingWord) return true;
+    else return false;
 }
+}
+
+
+
+//---------------------------------------------------------
+//---------------------------------------------------------
+//---------------------------------------------------------
+
+
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -176,7 +317,19 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+
+function howManyTimes(wordsCount, searchingWord) {
+  let count = 0;
+  for (let i of wordsCount) {
+    if (i === searchingWord) count++;
+  }
+  return count;
+}
+
+
+//---------------------------------------------------------
+//---------------------------------------------------------
+//---------------------------------------------------------
 
 
 
@@ -205,6 +358,14 @@ const matrix = [
 ];
 
 function greatestProduct() {}
+
+
+
+
+
+//---------------------------------------------------------
+//---------------------------------------------------------
+//---------------------------------------------------------
 
 
 
